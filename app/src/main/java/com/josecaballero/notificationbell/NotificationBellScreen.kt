@@ -1,6 +1,7 @@
 package com.josecaballero.notificationbell
 
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -26,6 +27,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
@@ -59,7 +62,11 @@ fun NotificationBellScreen(
                 ) {
                     //TODO: Navigate back
                 }
-                Spacer(modifier = Modifier.height(43.dp))
+                Spacer(modifier = Modifier.height(4.dp))
+                Box(modifier = Modifier.padding(start = 12.dp)) {
+                    VectorImage(R.drawable.vector_13)
+                }
+                Spacer(modifier = Modifier.height(8.dp))
                 NotificationBellTextSpacer {
                     NotificationBellText(
                         text = "Notifications header",
@@ -348,6 +355,15 @@ fun NotificationBellText(
         text = text,
         style = textStyle,
         modifier = modifier.padding(8.dp)
+    )
+}
+
+@Composable
+fun VectorImage(vectorResId: Int) {
+    val painter: Painter = painterResource(id = vectorResId)
+    Image(
+        painter = painter,
+        contentDescription = null
     )
 }
 
